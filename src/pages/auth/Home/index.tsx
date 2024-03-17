@@ -1,3 +1,11 @@
+import { Navbar } from '@components/Navbar';
+import { Helmet } from 'react-helmet-async';
+
 export function Home() {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <Helmet title="Início" />
+      <Navbar />
+    </>
+  );
 }
