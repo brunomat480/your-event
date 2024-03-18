@@ -7,11 +7,12 @@ export function Home() {
   return (
     <>
       <Helmet title="Eventos" />
+
       <Navbar />
 
-      <div className="w-full max-w-screen-xl">
+      <header className="overflow-hidden">
         <Carousel />
-      </div>
+      </header>
     </>
   );
 }

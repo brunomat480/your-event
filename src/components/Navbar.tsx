@@ -13,10 +13,16 @@ export function Navbar() {
   }
 
   return (
-    <nav className="relative flex items-center justify-between px-6 py-7">
+    <nav className="relative z-10 flex items-center justify-between px-6 py-7">
       <a className="text-2xl font-bold" href="">
         your
-        <span className={toggle ? 'text-white ' : 'text-indigo-600'}>
+        <span
+          className={
+            toggle
+              ? 'text-white transition-colors duration-300'
+              : 'text-indigo-600 transition-colors duration-300'
+          }
+        >
           Event
         </span>
       </a>
