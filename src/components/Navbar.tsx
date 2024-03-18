@@ -13,7 +13,7 @@ export function Navbar() {
   }
 
   return (
-    <nav className="container relative m-auto flex items-center justify-between px-6 py-7">
+    <nav className="relative flex items-center justify-between px-6 py-7">
       <a className="text-2xl font-bold" href="">
         your
         <span className={toggle ? 'text-white ' : 'text-indigo-600'}>
@@ -52,8 +52,8 @@ export function Navbar() {
       <div
         className={
           toggle
-            ? 'container absolute left-0 right-0 top-0 -z-10 m-auto flex h-screen w-screen flex-col items-center justify-center bg-indigo-600 transition-all'
-            : 'container absolute left-0 right-0 top-0 -z-10 m-auto flex h-0 w-screen flex-col items-center justify-center overflow-hidden bg-indigo-600 transition-all'
+            ? 'container absolute left-0 right-0 top-0 -z-10 m-auto flex h-screen w-screen flex-col items-center justify-center bg-indigo-600 transition-all duration-300'
+            : 'container absolute left-0 right-0 top-0 -z-10 m-auto flex h-0 w-screen flex-col items-center justify-center overflow-hidden bg-indigo-600 transition-all duration-300'
         }
       >
         <ul className="mt-24 flex flex-col items-center gap-7 text-3xl font-bold text-white ">
