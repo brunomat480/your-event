@@ -1,24 +1,35 @@
 import { EnvelopeSimple, User, WhatsappLogo } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function Navbar() {
   const [toggle, setToggle] = useState(false);
+  const [scroll, setScroll] = useState(0);
 
   function handleToggleMenu() {
-    if (toggle) {
-      setToggle(false);
-    } else {
-      setToggle(true);
-    }
+    setToggle((state) => !state);
   }
 
+  useEffect(() => {
+    function handleScrollAlterColorNavbar() {
+      setScroll(window.scrollY);
+    }
+
+    window.addEventListener('scroll', handleScrollAlterColorNavbar);
+  }, [scroll]);
+
   return (
-    <nav className="relative z-10 flex items-center justify-between px-6 py-7">
+    <nav
+      className={
+        toggle || scroll > 0
+          ? 'fixed left-0 top-0 z-10 flex w-full items-center justify-between bg-indigo-600 px-6 py-7 shadow-lg transition-colors duration-100'
+          : 'fixed left-0 top-0 z-10 flex w-full items-center justify-between bg-slate-100 px-6 py-7 transition-colors duration-500'
+      }
+    >
       <a className="text-2xl font-bold" href="">
         your
         <span
           className={
-            toggle
+            toggle || scroll > 0
               ? 'text-white transition-colors duration-300'
               : 'text-indigo-600 transition-colors duration-300'
           }
@@ -36,21 +47,21 @@ export function Navbar() {
           className={
             toggle
               ? 'h-[2px] w-6 translate-y-[2px] rotate-45 bg-white transition-transform'
-              : 'h-[2px] w-6 -translate-y-1 bg-black transition-transform'
+              : `h-[2px] w-6 -translate-y-1 ${scroll > 0 ? 'bg-white' : 'bg-black'} transition-transform`
           }
         ></div>
         <div
           className={
             toggle
               ? 'h-[2px] w-6 bg-white opacity-0 transition-transform'
-              : 'h-[2px] w-6 bg-black opacity-100 transition-transform  '
+              : `h-[2px] w-6 ${scroll > 0 ? 'bg-white' : 'bg-black'} opacity-100 transition-transform`
           }
         ></div>
         <div
           className={
             toggle
               ? 'h-[2px] w-6 -translate-y-[2px] -rotate-45 bg-white transition-transform'
-              : 'h-[2px] w-6 translate-y-1 bg-black transition-transform'
+              : `h-[2px] w-6 translate-y-1 ${scroll > 0 ? 'bg-white' : 'bg-black'} transition-transform`
           }
         ></div>
       </button>
@@ -58,11 +69,11 @@ export function Navbar() {
       <div
         className={
           toggle
-            ? 'container absolute left-0 right-0 top-0 -z-10 m-auto flex h-screen w-screen flex-col items-center justify-center bg-indigo-600 transition-all duration-300'
-            : 'container absolute left-0 right-0 top-0 -z-10 m-auto flex h-0 w-screen flex-col items-center justify-center overflow-hidden bg-indigo-600 transition-all duration-300'
+            ? 'container absolute left-0 right-0 top-[88px] -z-10 m-auto flex h-screen w-screen flex-col items-center bg-indigo-600 transition-all duration-300 ease-in-out'
+            : 'container absolute left-0 right-0 top-[88px] -z-10 m-auto flex h-0 w-screen flex-col items-center overflow-hidden bg-indigo-600 transition-all duration-300 ease-in-out'
         }
       >
-        <ul className="mt-24 flex flex-col items-center gap-7 text-3xl font-bold text-white ">
+        <ul className="mt-16 flex flex-col items-center gap-7 text-3xl font-bold text-white ">
           <li>
             <a
               className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
