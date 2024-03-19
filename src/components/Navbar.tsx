@@ -25,7 +25,7 @@ export function Navbar() {
           : 'fixed left-0 top-0 z-10 flex w-full items-center justify-between bg-slate-100 px-6 py-7 transition-colors duration-500'
       }
     >
-      <a className="text-2xl font-bold" href="">
+      <a className="text-2xl font-bold" href="#start">
         your
         <span
           className={
@@ -75,28 +75,34 @@ export function Navbar() {
       >
         <ul className="mt-16 flex flex-col items-center gap-7 text-3xl font-bold text-white ">
           <li>
-            <a
-              className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
-              href=""
-            >
-              Início
-            </a>
+            <button type="button" onClick={handleToggleMenu}>
+              <a
+                className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                href="#start"
+              >
+                Início
+              </a>
+            </button>
           </li>
           <li>
-            <a
-              className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
-              href=""
-            >
-              Sobre
-            </a>
+            <button type="button" onClick={handleToggleMenu}>
+              <a
+                className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                href="#about"
+              >
+                Sobre
+              </a>
+            </button>
           </li>
           <li>
-            <a
-              className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
-              href=""
-            >
-              Eventos
-            </a>
+            <button type="button" onClick={handleToggleMenu}>
+              <a
+                className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                href="#events"
+              >
+                Eventos
+              </a>
+            </button>
           </li>
         </ul>
 
