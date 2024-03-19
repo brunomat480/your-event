@@ -69,8 +69,8 @@ export function Navbar() {
       <div
         className={
           toggle
-            ? 'container absolute left-0 right-0 top-[88px] -z-10 m-auto flex h-screen w-screen flex-col items-center bg-indigo-600 transition-all duration-300 ease-in-out'
-            : 'container absolute left-0 right-0 top-[88px] -z-10 m-auto flex h-0 w-screen flex-col items-center overflow-hidden bg-indigo-600 transition-all duration-300 ease-in-out'
+            ? 'container absolute left-0 right-0 top-[88px] m-auto flex h-screen w-screen flex-col items-center overflow-y-hidden bg-indigo-600 transition-all duration-300 ease-in-out'
+            : 'container absolute left-0 right-0 top-[88px] m-auto flex h-0 w-screen flex-col items-center overflow-y-hidden bg-indigo-600 transition-all duration-300 ease-in-out'
         }
       >
         <ul className="mt-16 flex flex-col items-center gap-7 text-3xl font-bold text-white ">
