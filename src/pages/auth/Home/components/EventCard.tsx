@@ -2,12 +2,17 @@ import eventImage from '@assets/slide-1.png';
 
 export function EventCard() {
   return (
-    <div className="pt relative m-auto mt-8 h-80 w-60 rounded-tl-[40px] bg-indigo-600 shadow-xl">
+    <button
+      type="button"
+      className="group relative m-auto mt-8 h-80 w-60 overflow-y-hidden rounded-tl-[40px] bg-indigo-600 shadow-xl"
+    >
+      <div className="absolute top-11 h-full w-full transition-colors group-hover:bg-black group-hover:bg-opacity-60"></div>
+
       <h2 className="py-2 text-lg font-medium text-white">Nome do Evento</h2>
 
-      <img src={eventImage} alt="" className="object-cover" />
+      <img src={eventImage} alt="" className="h-full object-cover" />
 
-      <div className="absolute bottom-0 left-0 bg-white px-2 py-3 shadow-md">
+      <div className="absolute bottom-0 left-0 translate-y-52 bg-white px-2 py-3 shadow-md transition-transform duration-500 ease-out group-hover:translate-y-0">
         <div className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-full bg-slate-600">
             {/* <img src={person} alt="" className="rounded-full" /> */}
@@ -32,6 +37,6 @@ export function EventCard() {
           </span>
         </div>
       </div>
-    </div>
+    </button>
   );
 }

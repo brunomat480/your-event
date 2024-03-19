@@ -11,6 +11,7 @@ import { Helmet } from 'react-helmet-async';
 
 import { Carousel } from './components/Carousel';
 import { EventCard } from './components/EventCard';
+import { SurpportChat } from './components/SupportChat';
 
 export function Home() {
   const [openInput, setOpenInput] = useState(false);
@@ -20,7 +21,7 @@ export function Home() {
   }
 
   return (
-    <>
+    <div className="container relative m-auto scroll-smooth bg-slate-100">
       <Helmet title="Eventos" />
       <Navbar />
       <header id="start" className="overflow-hidden pt-20">
@@ -90,9 +91,11 @@ export function Home() {
           </div>
         </div>
 
-        {Array.from({ length: 5 }).map((_, i) => (
-          <EventCard key={i} />
-        ))}
+        <div className="flex flex-col">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <EventCard key={i} />
+          ))}
+        </div>
       </section>
 
       <footer className="bg-indigo-600 px-10 pb-12 pt-11">
@@ -121,6 +124,8 @@ export function Home() {
           </a>
         </div>
       </footer>
-    </>
+
+      <SurpportChat />
+    </div>
   );
 }

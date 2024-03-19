@@ -21,8 +21,8 @@ export function Navbar() {
     <nav
       className={
         toggle || scroll > 0
-          ? 'fixed left-0 top-0 z-10 flex w-full items-center justify-between bg-indigo-600 px-6 py-7 shadow-lg transition-colors duration-100'
-          : 'fixed left-0 top-0 z-10 flex w-full items-center justify-between bg-slate-100 px-6 py-7 transition-colors duration-500'
+          ? 'fixed left-0 top-0 z-30 flex w-full items-center justify-between bg-indigo-600 px-6 py-7 shadow-lg transition-colors duration-100'
+          : 'fixed left-0 top-0 z-30 flex w-full items-center justify-between bg-slate-100 px-6 py-7 transition-colors duration-500'
       }
     >
       <a className="text-2xl font-bold" href="#start">
