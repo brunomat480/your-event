@@ -14,7 +14,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 register();
 
-export function Carousel() {
+export function EventsCarousel() {
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay, Keyboard]}
@@ -28,7 +28,7 @@ export function Carousel() {
     >
       <SwiperSlide>
         <img
-          className="h-80 w-full select-none object-cover"
+          className="h-80 w-full select-none object-cover lg:h-96"
           src={slider1}
           alt=""
         />
@@ -36,7 +36,7 @@ export function Carousel() {
 
       <SwiperSlide>
         <img
-          className="h-80 w-full select-none object-cover"
+          className="h-80 w-full select-none object-cover lg:h-96"
           src={slider2}
           alt=""
         />
@@ -44,7 +44,7 @@ export function Carousel() {
 
       <SwiperSlide>
         <img
-          className="h-80 w-full select-none object-cover"
+          className="h-80 w-full select-none object-cover lg:h-96"
           src={slider3}
           alt=""
         />

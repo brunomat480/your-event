@@ -6,6 +6,9 @@ export default {
       letterSpacing: {
         2: '8px',
       },
+      container: {
+        center: true,
+      },
     },
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
