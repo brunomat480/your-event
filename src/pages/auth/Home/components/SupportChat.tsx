@@ -1,8 +1,22 @@
 import { ChatCircle, X } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function SurpportChat() {
   const [chatOpen, setChatOpen] = useState(false);
+
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        handleOpenChat();
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleOpenChat]);
 
   function handleOpenChat() {
     setChatOpen((state) => !state);
@@ -13,8 +27,8 @@ export function SurpportChat() {
       <form
         className={
           chatOpen
-            ? 'w-2xl absolute -top-72 right-10 flex h-64 origin-bottom-right scale-100 flex-col items-end justify-center overflow-hidden rounded-t-xl rounded-bl-xl border-4 border-indigo-600 bg-white px-4 transition-transform duration-150'
-            : 'w-2xl absolute -top-72 right-10 flex h-64 origin-bottom-right scale-0 flex-col items-end justify-center overflow-hidden rounded-t-xl rounded-bl-xl border-4 border-indigo-600 bg-white px-4 transition-transform duration-150'
+            ? 'w-2xl absolute -top-[260px] right-10 flex h-64 origin-bottom-right scale-100 flex-col items-end justify-center overflow-hidden rounded-t-xl rounded-bl-xl border-4 border-indigo-600 bg-white px-4 transition-transform duration-150'
+            : 'w-2xl absolute -top-[260px] right-10 flex h-64 origin-bottom-right scale-0 flex-col items-end justify-center overflow-hidden rounded-t-xl rounded-bl-xl border-4 border-indigo-600 bg-white px-4 transition-transform duration-150'
         }
       >
         <button

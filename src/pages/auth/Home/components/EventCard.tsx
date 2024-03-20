@@ -2,10 +2,7 @@ import eventImage from '@assets/slide-1.png';
 
 export function EventCard() {
   return (
-    <button
-      type="button"
-      className="group relative m-auto mt-8 h-80 w-60 overflow-y-hidden rounded-tl-[40px] bg-indigo-600 shadow-xl"
-    >
+    <div className="group relative m-auto mt-8 h-80 w-60 overflow-y-hidden rounded-tl-[40px] bg-indigo-600 shadow-xl">
       <div className="absolute top-11 h-full w-full transition-colors group-hover:bg-black group-hover:bg-opacity-60"></div>
 
       <h2 className="py-2 text-lg font-medium text-white">Nome do Evento</h2>
@@ -17,7 +14,9 @@ export function EventCard() {
           <div className="h-8 w-8 rounded-full bg-slate-600">
             {/* <img src={person} alt="" className="rounded-full" /> */}
           </div>
-          <span className="text-xs font-medium">Nome do responsável</span>
+          <span className="select-none text-xs font-medium">
+            Nome do responsável
+          </span>
         </div>
 
         <div className="mt-2 flex flex-col gap-1 text-left text-xs">
@@ -37,6 +36,6 @@ export function EventCard() {
           </span>
         </div>
       </div>
-    </button>
+    </div>
   );
 }
