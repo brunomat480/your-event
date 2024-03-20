@@ -21,7 +21,7 @@ export function Navbar() {
     <nav
       className={
         toggle || scroll > 0
-          ? 'fixed right-0 z-30 w-full bg-indigo-600 px-6 py-7 shadow-lg transition-colors duration-100'
+          ? 'fixed right-0 z-30 w-full bg-indigo-600 px-6 py-7 shadow-lg transition-colors duration-100 md:bg-slate-100'
           : 'fixed right-0 z-30 w-full bg-slate-100 px-6 py-7 transition-colors duration-500'
       }
     >
@@ -31,7 +31,7 @@ export function Navbar() {
           <span
             className={
               toggle || scroll > 0
-                ? 'text-white transition-colors duration-300'
+                ? 'text-white transition-colors duration-300 md:text-indigo-600'
                 : 'text-indigo-600 transition-colors duration-300'
             }
           >
@@ -40,7 +40,7 @@ export function Navbar() {
         </a>
 
         <button
-          className="flex flex-col py-2"
+          className="flex flex-col py-2 md:hidden"
           type="button"
           onClick={handleToggleMenu}
         >
@@ -66,13 +66,61 @@ export function Navbar() {
             }
           ></div>
         </button>
+
+        <div className="hidden md:flex md:items-center md:gap-52">
+          <ul className="flex items-center gap-28 text-base font-semibold">
+            <li>
+              <a
+                className="after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                href="#start"
+              >
+                Início
+              </a>
+            </li>
+            <li>
+              <a
+                className="after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                href="#about"
+              >
+                Sobre
+              </a>
+            </li>
+            <li>
+              <a
+                className="after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                href="#events"
+              >
+                Eventos
+              </a>
+            </li>
+          </ul>
+
+          <div className="flex  h-0 items-center gap-11">
+            <button
+              className="rounded-lg border-2 border-indigo-900 p-2 text-xs font-medium transition-colors duration-200 ease-out hover:bg-indigo-900 hover:text-white"
+              type="button"
+            >
+              Cadastre-se
+            </button>
+
+            <button
+              className="flex items-center gap-2 rounded-lg p-3 text-xs font-medium text-black hover:bg-gray-200 hover:bg-opacity-95"
+              type="button"
+            >
+              Login
+              <User size={20} />
+            </button>
+          </div>
+        </div>
       </div>
+
+      {/* <-------- MOBILE --------> */}
 
       <div
         className={
           toggle
-            ? 'absolute left-0 right-0 top-[88px] flex h-screen w-screen flex-col items-center overflow-y-hidden bg-indigo-600 transition-all duration-300 ease-in-out'
-            : 'absolute left-0 right-0 top-[88px] flex h-0 w-screen flex-col items-center overflow-y-hidden bg-indigo-600 transition-all duration-300 ease-in-out'
+            ? 'absolute left-0 right-0 top-[88px] flex h-screen w-screen flex-col items-center overflow-y-hidden bg-indigo-600 transition-all duration-300 ease-in-out md:hidden'
+            : 'absolute left-0 right-0 top-[88px] flex h-0 w-screen flex-col items-center overflow-y-hidden bg-indigo-600 transition-all duration-300 ease-in-out md:hidden'
         }
       >
         <ul className="mt-16 flex flex-col items-center gap-7 text-3xl font-bold text-white ">

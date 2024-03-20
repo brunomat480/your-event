@@ -23,7 +23,7 @@ export function SurpportChat() {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-20 flex flex-col items-end md:bottom-8 md:right-8">
+    <div className="fixed bottom-4 right-4 z-20 flex flex-col items-end">
       <form
         className={
           chatOpen

@@ -24,7 +24,7 @@ export function Home() {
     <div className="scroll-smooth">
       <Helmet title="Eventos" />
       <Navbar />
-      <header id="start" className="container mx-auto overflow-hidden pt-20">
+      <header id="start" className="  pt-20">
         <Carousel />
       </header>
 
