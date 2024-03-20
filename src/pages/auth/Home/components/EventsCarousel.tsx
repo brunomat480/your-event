@@ -14,7 +14,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 register();
 
-export function Carousel() {
+export function EventsCarousel() {
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay, Keyboard]}
