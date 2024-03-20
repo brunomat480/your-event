@@ -21,16 +21,16 @@ export function Home() {
   }
 
   return (
-    <div className="container relative m-auto scroll-smooth bg-slate-100">
+    <div className="scroll-smooth">
       <Helmet title="Eventos" />
       <Navbar />
-      <header id="start" className="overflow-hidden pt-20">
+      <header id="start" className="container mx-auto overflow-hidden pt-20">
         <Carousel />
       </header>
 
       <section
         id="about"
-        className="bg-slate-100 px-10 pb-11 pt-28 text-center"
+        className="container mx-auto px-10 pb-11 pt-28 text-center"
       >
         <header>
           <h4 className="text-sm font-bold uppercase leading-none tracking-2 text-indigo-900">
@@ -55,76 +55,79 @@ export function Home() {
 
       <section
         id="events"
-        className="bg-indigo-400 px-10 pb-9 pt-28  text-center"
+        className="bg-indigo-400 px-10 pb-9 pt-28 text-center"
       >
-        <header>
-          <h4 className="text-xs font-bold uppercase leading-none tracking-2 text-indigo-900">
-            eventos
-          </h4>
-          <h2 className="text-2xl font-bold">Eventos abertos</h2>
-        </header>
+        <div className="container mx-auto">
+          <header>
+            <h4 className="text-xs font-bold uppercase leading-none tracking-2 text-indigo-900">
+              eventos
+            </h4>
+            <h2 className="text-2xl font-bold">Eventos abertos</h2>
+          </header>
 
-        <div className="mt-16 flex justify-start gap-4">
-          <button
-            className="text-white hover:text-indigo-900"
-            type="button"
-            onClick={handleOpenSearchInput}
-          >
-            <MagnifyingGlass size={32} />
-          </button>
-          <div
-            className={
-              openInput
-                ? 'w-full overflow-x-visible transition-all duration-300 ease-in-out'
-                : 'w-0 overflow-x-hidden transition-all duration-300 ease-in-out'
-            }
-          >
-            <label className="sr-only" htmlFor="event-name">
-              Buscar evento
-            </label>
-            <input
-              className="w-full rounded-md border-[2px] border-white p-2 text-sm outline-none transition-all duration-150 ease-in placeholder:font-medium placeholder:text-gray-500 focus:border-indigo-900"
-              type="text"
-              id="event-name"
-              placeholder="Busque um evento"
-            />
+          <div className="mt-16 flex justify-start gap-4">
+            <button
+              className="text-white hover:text-indigo-900"
+              type="button"
+              onClick={handleOpenSearchInput}
+            >
+              <MagnifyingGlass size={32} />
+            </button>
+            <div
+              className={
+                openInput
+                  ? 'w-full overflow-x-visible transition-all duration-300 ease-in-out'
+                  : 'w-0 overflow-x-hidden transition-all duration-300 ease-in-out'
+              }
+            >
+              <label className="sr-only" htmlFor="event-name">
+                Buscar evento
+              </label>
+              <input
+                className="w-full rounded-md border-[2px] border-white p-2 text-sm outline-none transition-all duration-150 ease-in placeholder:font-medium placeholder:text-gray-500 focus:border-indigo-900"
+                type="text"
+                id="event-name"
+                placeholder="Busque um evento"
+              />
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <EventCard key={i} />
-          ))}
+          <div className="flex flex-col">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <EventCard key={i} />
+            ))}
+          </div>
         </div>
       </section>
 
       <footer className="bg-indigo-600 px-10 pb-12 pt-11">
-        <a className="text-2xl font-bold" href="">
-          your
-          <span className="text-white transition-colors duration-300">
-            Event
-          </span>
-        </a>
-
-        <div className="mt-7 space-y-5">
-          <span className="flex items-center gap-3 text-base font-bold text-white">
-            <EnvelopeSimple size={32} />
-            yourevent@gmail.com
-          </span>
-
-          <span className="flex items-center gap-3 text-base font-bold text-white">
-            <WhatsappLogo size={32} />
-            (xx) x xxxx-xxxx
-          </span>
-        </div>
-
-        <div className="mt-16 text-right">
-          <a type="button" href="#start" className="bg-indigo-400 p-3">
-            <ArrowUp size={32} color="#fff" />
+        <div className="container mx-auto">
+          <a className="text-2xl font-bold" href="">
+            your
+            <span className="text-white transition-colors duration-300">
+              Event
+            </span>
           </a>
+
+          <div className="mt-7 space-y-5">
+            <span className="flex items-center gap-3 text-base font-bold text-white">
+              <EnvelopeSimple size={32} />
+              yourevent@gmail.com
+            </span>
+
+            <span className="flex items-center gap-3 text-base font-bold text-white">
+              <WhatsappLogo size={32} />
+              (xx) x xxxx-xxxx
+            </span>
+          </div>
+
+          <div className="mt-16 text-right">
+            <a type="button" href="#start" className="bg-indigo-400 p-3">
+              <ArrowUp size={32} color="#fff" />
+            </a>
+          </div>
         </div>
       </footer>
-
       <SurpportChat />
     </div>
   );

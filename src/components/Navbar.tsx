@@ -21,56 +21,58 @@ export function Navbar() {
     <nav
       className={
         toggle || scroll > 0
-          ? 'fixed left-0 top-0 z-30 flex w-full items-center justify-between bg-indigo-600 px-6 py-7 shadow-lg transition-colors duration-100'
-          : 'fixed left-0 top-0 z-30 flex w-full items-center justify-between bg-slate-100 px-6 py-7 transition-colors duration-500'
+          ? 'fixed right-0 z-30 w-full bg-indigo-600 px-6 py-7 shadow-lg transition-colors duration-100'
+          : 'fixed right-0 z-30 w-full bg-slate-100 px-6 py-7 transition-colors duration-500'
       }
     >
-      <a className="text-2xl font-bold" href="#start">
-        your
-        <span
-          className={
-            toggle || scroll > 0
-              ? 'text-white transition-colors duration-300'
-              : 'text-indigo-600 transition-colors duration-300'
-          }
-        >
-          Event
-        </span>
-      </a>
+      <div className="container mx-auto flex items-center justify-between">
+        <a className="text-2xl font-bold" href="#start">
+          your
+          <span
+            className={
+              toggle || scroll > 0
+                ? 'text-white transition-colors duration-300'
+                : 'text-indigo-600 transition-colors duration-300'
+            }
+          >
+            Event
+          </span>
+        </a>
 
-      <button
-        className="flex flex-col py-2"
-        type="button"
-        onClick={handleToggleMenu}
-      >
-        <div
-          className={
-            toggle
-              ? 'h-[2px] w-6 translate-y-[2px] rotate-45 bg-white transition-transform'
-              : `h-[2px] w-6 -translate-y-1 ${scroll > 0 ? 'bg-white' : 'bg-black'} transition-transform`
-          }
-        ></div>
-        <div
-          className={
-            toggle
-              ? 'h-[2px] w-6 bg-white opacity-0 transition-transform'
-              : `h-[2px] w-6 ${scroll > 0 ? 'bg-white' : 'bg-black'} opacity-100 transition-transform`
-          }
-        ></div>
-        <div
-          className={
-            toggle
-              ? 'h-[2px] w-6 -translate-y-[2px] -rotate-45 bg-white transition-transform'
-              : `h-[2px] w-6 translate-y-1 ${scroll > 0 ? 'bg-white' : 'bg-black'} transition-transform`
-          }
-        ></div>
-      </button>
+        <button
+          className="flex flex-col py-2"
+          type="button"
+          onClick={handleToggleMenu}
+        >
+          <div
+            className={
+              toggle
+                ? 'h-[2px] w-6 translate-y-[2px] rotate-45 bg-white transition-transform'
+                : `h-[2px] w-6 -translate-y-1 ${scroll > 0 ? 'bg-white' : 'bg-black'} transition-transform`
+            }
+          ></div>
+          <div
+            className={
+              toggle
+                ? 'h-[2px] w-6 bg-white opacity-0 transition-transform'
+                : `h-[2px] w-6 ${scroll > 0 ? 'bg-white' : 'bg-black'} opacity-100 transition-transform`
+            }
+          ></div>
+          <div
+            className={
+              toggle
+                ? 'h-[2px] w-6 -translate-y-[2px] -rotate-45 bg-white transition-transform'
+                : `h-[2px] w-6 translate-y-1 ${scroll > 0 ? 'bg-white' : 'bg-black'} transition-transform`
+            }
+          ></div>
+        </button>
+      </div>
 
       <div
         className={
           toggle
-            ? 'container absolute left-0 right-0 top-[88px] m-auto flex h-screen w-screen flex-col items-center overflow-y-hidden bg-indigo-600 transition-all duration-300 ease-in-out'
-            : 'container absolute left-0 right-0 top-[88px] m-auto flex h-0 w-screen flex-col items-center overflow-y-hidden bg-indigo-600 transition-all duration-300 ease-in-out'
+            ? 'absolute left-0 right-0 top-[88px] flex h-screen w-screen flex-col items-center overflow-y-hidden bg-indigo-600 transition-all duration-300 ease-in-out'
+            : 'absolute left-0 right-0 top-[88px] flex h-0 w-screen flex-col items-center overflow-y-hidden bg-indigo-600 transition-all duration-300 ease-in-out'
         }
       >
         <ul className="mt-16 flex flex-col items-center gap-7 text-3xl font-bold text-white ">
