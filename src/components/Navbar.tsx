@@ -1,3 +1,5 @@
+import { SignIn } from '@pages/auth/Home/components/SignIn';
+import { SignUp } from '@pages/auth/Home/components/SignUp';
 import { EnvelopeSimple, User, WhatsappLogo } from '@phosphor-icons/react';
 import { useEffect, useState } from 'react';
 
@@ -5,8 +7,21 @@ export function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [scroll, setScroll] = useState(0);
 
+  const [openSignInModal, setOpenSignInModal] = useState(false);
+  const [openSignUpModal, setOpenSignUpModal] = useState(false);
+
   function handleToggleMenu() {
     setToggle((state) => !state);
+  }
+
+  function handleOpenSigninModal() {
+    setOpenSignInModal((state) => !state);
+    setToggle(false);
+  }
+
+  function handleOpenSignUpModal() {
+    setOpenSignUpModal((state) => !state);
+    setToggle(false);
   }
 
   function handleScrollAlterColorNavbar() {
@@ -106,6 +121,7 @@ export function Navbar() {
             <button
               className={`rounded-lg border-[1px] border-indigo-900 p-2 text-sm font-medium transition-colors duration-200 ease-out  hover:text-white ${scroll > 0 ? 'bg-indigo-900 hover:border-indigo-800 hover:bg-indigo-800' : 'hover:bg-indigo-900'}`}
               type="button"
+              onClick={handleOpenSignUpModal}
             >
               Cadastre-se
             </button>
@@ -113,6 +129,7 @@ export function Navbar() {
             <button
               className={`flex items-center gap-2 rounded-lg p-3 text-sm font-medium ${scroll > 0 ? 'hover:bg-opacity-30' : 'hover:bg-opacity-95'} hover:bg-gray-200`}
               type="button"
+              onClick={handleOpenSigninModal}
             >
               Login
               <User size={20} />
@@ -167,6 +184,7 @@ export function Navbar() {
           <button
             className="rounded-lg bg-indigo-900 p-3 text-base font-medium text-white transition-colors duration-300 hover:bg-indigo-800"
             type="button"
+            onClick={handleOpenSignUpModal}
           >
             Cadastre-se
           </button>
@@ -174,6 +192,7 @@ export function Navbar() {
           <button
             className="flex items-center gap-2 rounded-lg p-3 text-base font-medium text-white hover:bg-gray-200 hover:bg-opacity-30"
             type="button"
+            onClick={handleOpenSigninModal}
           >
             Login <User size={20} />
           </button>
@@ -189,6 +208,42 @@ export function Navbar() {
             <WhatsappLogo size={32} />
             (xx) x xxxx-xxxx
           </span>
+        </div>
+      </div>
+
+      <div
+        className={
+          !openSignInModal
+            ? 'invisible fixed inset-0 h-full w-full bg-black bg-opacity-50 opacity-0 backdrop-blur-sm transition-all duration-200 ease-in'
+            : 'visible fixed inset-0 h-full w-full bg-black bg-opacity-50 opacity-100 backdrop-blur-sm transition-all duration-200 ease-out'
+        }
+      >
+        <div
+          className={
+            !openSignInModal
+              ? 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-50 opacity-0 transition-all duration-200'
+              : 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 transition-all duration-200'
+          }
+        >
+          <SignIn onOpenSigninModal={handleOpenSigninModal} />
+        </div>
+      </div>
+
+      <div
+        className={
+          !openSignUpModal
+            ? 'invisible fixed inset-0 h-full w-full bg-black bg-opacity-50 opacity-0 backdrop-blur-sm transition-all duration-200 ease-in'
+            : 'visible fixed inset-0 h-full w-full bg-black bg-opacity-50 opacity-100 backdrop-blur-sm transition-all duration-200 ease-out'
+        }
+      >
+        <div
+          className={
+            !openSignUpModal
+              ? 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-50 opacity-0 transition-all duration-200'
+              : 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 transition-all duration-200'
+          }
+        >
+          <SignUp onOpenSignUpModal={handleOpenSignUpModal} />
         </div>
       </div>
     </nav>
