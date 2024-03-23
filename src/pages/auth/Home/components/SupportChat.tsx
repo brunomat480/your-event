@@ -6,7 +6,7 @@ export function SurpportChat() {
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === 'Escape') {
+      if (event.key === 'Escape' && chatOpen) {
         handleOpenChat();
       }
     }
