@@ -13,26 +13,26 @@ export function Pagination() {
           className="rounded-md p-1 hover:bg-white hover:bg-opacity-25"
           type="button"
         >
-          <CaretDoubleLeft className="h-8 w-8" />
+          <CaretDoubleLeft className="h-8 w-8 text-indigo-900" />
         </button>
         <button
           className="rounded-md p-1 hover:bg-white hover:bg-opacity-25"
           type="button"
         >
-          <CaretLeft className="h-8 w-8" />
+          <CaretLeft className="h-8 w-8 text-indigo-900" />
         </button>
         <span className="mx-2 font-semibold text-white">Página 1 de 10</span>
         <button
           className="rounded-md p-1 hover:bg-white hover:bg-opacity-25"
           type="button"
         >
-          <CaretRight className="h-8 w-8" />
+          <CaretRight className="h-8 w-8 text-indigo-900" />
         </button>
         <button
           className="rounded-md p-1 hover:bg-white hover:bg-opacity-25"
           type="button"
         >
-          <CaretDoubleRight className="h-8 w-8" />
+          <CaretDoubleRight className="h-8 w-8 text-indigo-900" />
         </button>
       </div>
       <span className="mt-4 select-none text-sm font-medium text-white text-opacity-50">

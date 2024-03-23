@@ -5,7 +5,9 @@ export function EventCard() {
     <div className="group relative mx-auto mt-8 h-80 w-60 overflow-y-hidden rounded-tl-[40px] bg-indigo-600 shadow-xl">
       <div className="absolute top-11 h-full w-full transition-colors group-hover:bg-black group-hover:bg-opacity-60"></div>
 
-      <h2 className="py-2 text-lg font-medium text-white">Nome do Evento</h2>
+      <h2 className="select-none py-2 text-lg font-medium text-white">
+        Nome do Evento
+      </h2>
 
       <img src={eventImage} alt="" className="h-full object-cover" />
 

@@ -1,31 +1,96 @@
+import { SignIn } from '@pages/auth/Home/components/SignIn';
+import { SignUp } from '@pages/auth/Home/components/SignUp';
 import { EnvelopeSimple, User, WhatsappLogo } from '@phosphor-icons/react';
-import { useEffect, useState } from 'react';
+import { RefObject, useEffect, useState } from 'react';
 
-export function Navbar() {
+interface NavbarProps {
+  sections?: RefObject<HTMLElement[]> | undefined;
+}
+
+export function Navbar({ sections }: NavbarProps) {
   const [toggle, setToggle] = useState(false);
-  const [scroll, setScroll] = useState(0);
+  const [scroll, setScroll] = useState(false);
+
+  const [openSignInModal, setOpenSignInModal] = useState(false);
+  const [openSignUpModal, setOpenSignUpModal] = useState(false);
 
   function handleToggleMenu() {
     setToggle((state) => !state);
   }
 
+  function handleActivateMenuAtCurrentSection() {
+    const checkpoint = window.scrollY + (window.innerHeight / 8) * 4;
+
+    if (sections && sections.current) {
+      for (const section of sections.current) {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        const checkpointStart = checkpoint >= sectionTop;
+        const checkpointEnd = checkpoint <= sectionTop + sectionHeight;
+
+        if (checkpointStart && checkpointEnd) {
+          document
+            .querySelectorAll('nav ul li a[href*=' + sectionId + ']')
+            .forEach((element) => {
+              element.classList.remove('after:scale-0');
+            });
+
+          document
+            .querySelectorAll('nav ul li a[href*=' + sectionId + ']')
+            .forEach((element) => {
+              element.classList.add('after:scale-100');
+            });
+        } else {
+          document
+            .querySelectorAll('nav ul li a[href*=' + sectionId + ']')
+            .forEach((element) => {
+              element.classList.remove('after:scale-100');
+            });
+
+          document
+            .querySelectorAll('nav ul li a[href*=' + sectionId + ']')
+            .forEach((element) => {
+              element.classList.add('after:scale-0');
+            });
+        }
+      }
+    }
+  }
+
+  function handleOpenSigninModal() {
+    setOpenSignInModal((state) => !state);
+    setToggle(false);
+  }
+
+  function handleOpenSignUpModal() {
+    setOpenSignUpModal((state) => !state);
+    setToggle(false);
+  }
+
   function handleScrollAlterColorNavbar() {
-    setScroll(window.scrollY);
-    console.log('executou!');
+    if (scrollY > 0) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
   }
 
   useEffect(() => {
     handleScrollAlterColorNavbar();
+    handleActivateMenuAtCurrentSection();
 
     return () => {
       window.addEventListener('scroll', handleScrollAlterColorNavbar);
+      window.addEventListener('scroll', handleActivateMenuAtCurrentSection);
     };
   }, []);
 
   return (
     <nav
       className={
-        toggle || scroll > 0
+        toggle || scroll
           ? 'fixed right-0 z-30 w-full bg-indigo-600 px-6 py-7 shadow-lg transition-colors duration-100'
           : 'fixed right-0 z-30 w-full bg-slate-100 px-6 py-7 transition-colors duration-500'
       }
@@ -35,7 +100,7 @@ export function Navbar() {
           your
           <span
             className={
-              toggle || scroll > 0
+              toggle || scroll
                 ? 'text-white transition-colors duration-300'
                 : 'text-indigo-600 transition-colors duration-300'
             }
@@ -53,32 +118,32 @@ export function Navbar() {
             className={
               toggle
                 ? 'h-[2px] w-6 translate-y-[2px] rotate-45 bg-white transition-transform'
-                : `h-[2px] w-6 -translate-y-1 ${scroll > 0 ? 'bg-white' : 'bg-black'} transition-transform`
+                : `h-[2px] w-6 -translate-y-1 ${scroll ? 'bg-white' : 'bg-black'} transition-transform`
             }
           ></div>
           <div
             className={
               toggle
                 ? 'h-[2px] w-6 bg-white opacity-0 transition-transform'
-                : `h-[2px] w-6 ${scroll > 0 ? 'bg-white' : 'bg-black'} opacity-100 transition-transform`
+                : `h-[2px] w-6 ${scroll ? 'bg-white' : 'bg-black'} opacity-100 transition-transform`
             }
           ></div>
           <div
             className={
               toggle
                 ? 'h-[2px] w-6 -translate-y-[2px] -rotate-45 bg-white transition-transform'
-                : `h-[2px] w-6 translate-y-1 ${scroll > 0 ? 'bg-white' : 'bg-black'} transition-transform`
+                : `h-[2px] w-6 translate-y-1 ${scroll ? 'bg-white' : 'bg-black'} transition-transform`
             }
           ></div>
         </button>
 
         <div
-          className={`hidden lg:flex lg:items-center lg:gap-52 ${scroll > 0 ? 'text-white' : 'text-black'}`}
+          className={`hidden lg:flex lg:items-center lg:gap-52 ${scroll ? 'text-white' : 'text-black'}`}
         >
           <ul className="flex items-center gap-28 text-base font-semibold">
             <li>
               <a
-                className="after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                className="after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-200 after:content-[''] hover:after:scale-100"
                 href="#start"
               >
                 Início
@@ -86,7 +151,7 @@ export function Navbar() {
             </li>
             <li>
               <a
-                className="after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                className="after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-200 after:content-[''] hover:after:scale-100"
                 href="#about"
               >
                 Sobre
@@ -94,7 +159,7 @@ export function Navbar() {
             </li>
             <li>
               <a
-                className="after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                className="after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-200 after:content-[''] hover:after:scale-100"
                 href="#events"
               >
                 Eventos
@@ -104,15 +169,17 @@ export function Navbar() {
 
           <div className="flex h-0 items-center gap-11">
             <button
-              className={`rounded-lg border-[1px] border-indigo-900 p-2 text-sm font-medium transition-colors duration-200 ease-out  hover:text-white ${scroll > 0 ? 'bg-indigo-900 hover:border-indigo-800 hover:bg-indigo-800' : 'hover:bg-indigo-900'}`}
+              className={`rounded-lg border-[1px] border-indigo-900 p-2 text-sm font-medium transition-colors duration-200 ease-out  hover:text-white ${scroll ? 'bg-indigo-900 hover:border-indigo-800 hover:bg-indigo-800' : 'hover:bg-indigo-900'}`}
               type="button"
+              onClick={handleOpenSignUpModal}
             >
               Cadastre-se
             </button>
 
             <button
-              className={`flex items-center gap-2 rounded-lg p-3 text-sm font-medium ${scroll > 0 ? 'hover:bg-opacity-30' : 'hover:bg-opacity-95'} hover:bg-gray-200`}
+              className={`flex items-center gap-2 rounded-lg p-3 text-sm font-medium ${scroll ? 'hover:bg-opacity-30' : 'hover:bg-opacity-95'} hover:bg-gray-200`}
               type="button"
+              onClick={handleOpenSigninModal}
             >
               Login
               <User size={20} />
@@ -134,7 +201,7 @@ export function Navbar() {
           <li>
             <button type="button" onClick={handleToggleMenu}>
               <a
-                className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-200 after:content-[''] hover:after:scale-100"
                 href="#start"
               >
                 Início
@@ -144,7 +211,7 @@ export function Navbar() {
           <li>
             <button type="button" onClick={handleToggleMenu}>
               <a
-                className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-200 after:content-[''] hover:after:scale-100"
                 href="#about"
               >
                 Sobre
@@ -154,7 +221,7 @@ export function Navbar() {
           <li>
             <button type="button" onClick={handleToggleMenu}>
               <a
-                className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-150 after:content-[''] hover:after:scale-100"
+                className="after:block after:h-1 after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-200 after:content-[''] hover:after:scale-100"
                 href="#events"
               >
                 Eventos
@@ -167,6 +234,7 @@ export function Navbar() {
           <button
             className="rounded-lg bg-indigo-900 p-3 text-base font-medium text-white transition-colors duration-300 hover:bg-indigo-800"
             type="button"
+            onClick={handleOpenSignUpModal}
           >
             Cadastre-se
           </button>
@@ -174,6 +242,7 @@ export function Navbar() {
           <button
             className="flex items-center gap-2 rounded-lg p-3 text-base font-medium text-white hover:bg-gray-200 hover:bg-opacity-30"
             type="button"
+            onClick={handleOpenSigninModal}
           >
             Login <User size={20} />
           </button>
@@ -191,6 +260,16 @@ export function Navbar() {
           </span>
         </div>
       </div>
+
+      <SignIn
+        onOpenSigninModal={handleOpenSigninModal}
+        openSignUpModal={openSignInModal}
+      />
+
+      <SignUp
+        onOpenSignUpModal={handleOpenSignUpModal}
+        openSignUpModal={openSignUpModal}
+      />
     </nav>
   );
 }
