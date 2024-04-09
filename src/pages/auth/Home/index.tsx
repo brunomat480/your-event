@@ -1,7 +1,14 @@
 import eventImageDesktop from '@assets/pessoa-segurando-uma-guitarra-em-cima-do-palco-desktop.png';
 import { Navbar } from '@components/Navbar';
 import { Pagination } from '@components/Pagination';
-import { EnvelopeSimple, WhatsappLogo } from '@phosphor-icons/react';
+import {
+  EnvelopeSimple,
+  FacebookLogo,
+  InstagramLogo,
+  TwitterLogo,
+  WhatsappLogo,
+  YoutubeLogo,
+} from '@phosphor-icons/react';
 import { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 
@@ -22,7 +29,7 @@ export function Home() {
       <Helmet title="Eventos" />
       <Navbar sections={sectionRef} />
 
-      <section id="start" className="pt-20">
+      <section id="start" className="pt-24">
         <header>
           <EventsCarousel />
         </header>
@@ -98,27 +105,81 @@ export function Home() {
         </div>
       </section>
 
-      <footer className="bg-indigo-600 px-10 py-6 lg:px-0">
-        <div className="container mx-auto lg:flex lg:items-center lg:justify-between">
-          <span className="select-none text-2xl font-bold">
-            your
-            <span className="text-white transition-colors duration-300">
-              Event
-            </span>
-          </span>
+      <section id="contacts" className="px-10 lg:px-0">
+        <div className="container mx-auto pb-16 pt-28">
+          <div className="flex flex-col items-center gap-16 lg:flex-row lg:gap-44">
+            <header className="text-center lg:text-start">
+              <h4 className="text-sm font-bold uppercase leading-none tracking-2 text-indigo-900 lg:text-lg">
+                contatos
+              </h4>
+              <h2 className="text-2xl font-bold lg:text-3xl">
+                Entre em contato
+              </h2>
 
-          <div className="gap-32 lg:flex lg:items-center">
-            <div className="mt-7 space-y-5">
-              <span className="flex items-center gap-3 text-base font-bold text-white">
-                <EnvelopeSimple size={32} />
-                yourevent@gmail.com
-              </span>
+              <p className="mt-4 text-gray-500 lg:max-w-96">
+                Entre em contato com a Beautysalon, queremos tirar suas dúvidas,
+                ouvir suas críticas e sugestões.
+              </p>
+            </header>
 
-              <span className="flex items-center gap-3 text-base font-bold text-white">
-                <WhatsappLogo size={32} />
-                (xx) x xxxx-xxxx
-              </span>
+            <div className="gap-32 lg:flex lg:items-center">
+              <div className="mt-7 space-y-5">
+                <span className="flex items-center gap-3 text-base font-bold text-indigo-900">
+                  <EnvelopeSimple size={32} />
+                  yourevent@gmail.com
+                </span>
+
+                <span className="flex items-center gap-3 text-base font-bold text-indigo-900">
+                  <WhatsappLogo size={32} />
+                  (xx) x xxxx-xxxx
+                </span>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-indigo-600 px-10 py-12 lg:px-0">
+        <div className="container mx-auto lg:flex lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-2">
+            <span className="select-none text-2xl font-bold">
+              your
+              <span className="text-white transition-colors duration-300">
+                Event
+              </span>
+            </span>
+
+            <span className="text-sm text-gray-50">
+              your event &copy; {new Date().getFullYear()}
+            </span>
+          </div>
+
+          <div className="mr-32 mt-16 flex flex-row items-center justify-center gap-2 lg:mt-0 lg:justify-end ">
+            <a
+              href="#"
+              className="rounded-full p-2 transition-transform duration-200 hover:-translate-y-1.5 hover:bg-white/25"
+            >
+              <InstagramLogo className="size-8 text-white" />
+            </a>
+            <a
+              href="#"
+              className="rounded-full p-2 transition-transform duration-200 hover:-translate-y-1.5 hover:bg-white/25"
+            >
+              <YoutubeLogo className="size-8 text-white" />
+            </a>
+            <a
+              href="#"
+              className="rounded-full p-2 transition-transform duration-200 hover:-translate-y-1.5 hover:bg-white/25"
+            >
+              <FacebookLogo className="size-8 text-white" />
+            </a>
+
+            <a
+              href="#"
+              className="rounded-full p-2 transition-transform duration-200 hover:-translate-y-1.5 hover:bg-white/25"
+            >
+              <TwitterLogo className="size-8 text-white" />
+            </a>
           </div>
         </div>
       </footer>

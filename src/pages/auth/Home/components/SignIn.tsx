@@ -8,15 +8,15 @@ export function SignIn({ onOpenSigninModal, openSignUpModal }: SignInProps) {
     <div
       className={
         !openSignUpModal
-          ? 'invisible fixed inset-0 h-full w-full bg-black bg-opacity-50 opacity-0 backdrop-blur-sm transition-all duration-200 ease-in'
-          : 'visible fixed inset-0 h-full w-full bg-black bg-opacity-50 opacity-100 backdrop-blur-sm transition-all duration-200 ease-out'
+          ? 'invisible fixed inset-0 h-screen w-screen bg-black/20 opacity-0 backdrop-blur-sm transition-all duration-200 ease-in'
+          : 'visible fixed inset-0 h-screen w-screen bg-black/20 opacity-100 backdrop-blur-sm transition-all duration-200 ease-out'
       }
     >
       <div
         className={
           !openSignUpModal
-            ? 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-50 opacity-0 transition-all duration-200'
-            : 'fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 transition-all duration-200'
+            ? 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-50 opacity-0 transition-all duration-200'
+            : 'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-100 opacity-100 transition-all duration-200'
         }
       >
         <div className="w-80 rounded-lg bg-indigo-600 pb-3">
@@ -35,7 +35,7 @@ export function SignIn({ onOpenSigninModal, openSignUpModal }: SignInProps) {
                 E-mail ou telefone
               </label>
               <input
-                className="h-8 w-full rounded-md border-[2px] border-white p-2 text-sm outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
+                className="h-8  w-full rounded-md border-[2px] border-white p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
                 type="email"
                 id="email"
               />
@@ -46,7 +46,7 @@ export function SignIn({ onOpenSigninModal, openSignUpModal }: SignInProps) {
                 Senha
               </label>
               <input
-                className="h-8 w-full rounded-md border-[2px] border-white p-2 text-sm outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
+                className="h-8  w-full rounded-md border-[2px] border-white p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
                 type="password"
                 id="password"
               />
