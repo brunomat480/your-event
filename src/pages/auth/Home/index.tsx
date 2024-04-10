@@ -154,7 +154,7 @@ export function Home() {
             </span>
           </div>
 
-          <div className="mr-32 mt-16 flex flex-row items-center justify-center gap-2 lg:mt-0 lg:justify-end ">
+          <div className="mr-32 mt-16 flex w-full flex-row items-center justify-center gap-2 lg:mt-0 lg:w-0 lg:justify-end ">
             <a
               href="#"
               className="rounded-full p-2 transition-transform duration-200 hover:-translate-y-1.5 hover:bg-white/25"
