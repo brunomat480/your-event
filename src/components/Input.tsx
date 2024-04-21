@@ -1,19 +1,16 @@
-// import { ComponentProps } from 'react';
-
+import { ComponentProps } from 'react';
 import { useController } from 'react-hook-form';
 import { twMerge } from 'tailwind-merge';
 
-// interface InputProps extends ComponentProps<'input'> { }
-
-interface InputProps {
-  inputName: string;
+interface InputProps extends ComponentProps<'input'> {
+  nameField: string;
 }
 
-export function Input({ inputName }: InputProps) {
+export function Input({ nameField, ...rest }: InputProps) {
   const {
     field,
     fieldState: { error },
-  } = useController({ name: inputName });
+  } = useController({ name: nameField });
 
   return (
     <>
@@ -25,12 +22,11 @@ export function Input({ inputName }: InputProps) {
             ? 'border-rose-500 '
             : 'border-white focus:border-indigo-900',
         )}
-        id={inputName}
-        type={inputName}
         {...field}
+        {...rest}
       />
       {error?.message && (
-        <span className="text-sm font-medium text-rose-500">
+        <span className="text-xs font-medium text-rose-500">
           {error.message}
         </span>
       )}

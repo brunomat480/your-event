@@ -37,7 +37,7 @@ export function SignIn({ onOpenSigninModal, openSignUpModal }: SignInProps) {
     console.log({ email, password });
   }
 
-  function handleCloseFormSignin() {
+  function handleCloseFormSignIn() {
     onOpenSigninModal();
     reset();
   }
@@ -74,7 +74,7 @@ export function SignIn({ onOpenSigninModal, openSignUpModal }: SignInProps) {
               onSubmit={handleSubmit(signIn)}
             >
               <div className="pt-10">
-                <label className=" font-medium text-indigo-900" htmlFor="email">
+                <label className="font-medium text-indigo-900" htmlFor="email">
                   E-mail ou telefone
                 </label>
                 {/* <input
@@ -83,7 +83,7 @@ export function SignIn({ onOpenSigninModal, openSignUpModal }: SignInProps) {
                 id="email"
               /> */}
 
-                <Input inputName="email" />
+                <Input nameField="email" type="email" id="email" />
               </div>
 
               <div className="mt-4">
@@ -98,7 +98,7 @@ export function SignIn({ onOpenSigninModal, openSignUpModal }: SignInProps) {
                   type="password"
                   id="password"
                 /> */}
-                <Input inputName="password" />
+                <Input nameField="password" type="password" id="password" />
               </div>
               <div className="mt-2 text-end font-medium">
                 <button
@@ -113,7 +113,7 @@ export function SignIn({ onOpenSigninModal, openSignUpModal }: SignInProps) {
                 <button
                   className="select-none font-medium underline underline-offset-2 hover:text-red-500"
                   type="button"
-                  onClick={handleCloseFormSignin}
+                  onClick={handleCloseFormSignIn}
                 >
                   Cancelar
                 </button>
