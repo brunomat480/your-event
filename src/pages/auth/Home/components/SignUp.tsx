@@ -90,7 +90,6 @@ export function SignUp({ onOpenSignUpModal, openSignUpModal }: SignUpProps) {
               >
                 <label className="cursor-pointer" htmlFor="image">
                   <div className="absolute top-12 flex h-24 w-24 items-center justify-center rounded-full border-2 border-indigo-600 bg-white shadow-md">
-                    {/* <input id="dropzone-file" className="hidden" type="file" /> */}
                     <Input
                       nameField="profilePhoto"
                       type="file"
@@ -109,11 +108,6 @@ export function SignUp({ onOpenSignUpModal, openSignUpModal }: SignUpProps) {
                     >
                       Nome
                     </label>
-                    {/* <input
-                      className="h-8 w-full rounded-md border-[2px] border-white p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
-                      type="email"
-                      id="email"
-                    /> */}
                     <Input nameField="firstName" type="text" id="first-name" />
                   </div>
 
@@ -124,11 +118,6 @@ export function SignUp({ onOpenSignUpModal, openSignUpModal }: SignUpProps) {
                     >
                       Sobrenome
                     </label>
-                    {/* <input
-                      className="h-8 w-full rounded-md border-[2px] border-white p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
-                      type="password"
-                      id="password"
-                    /> */}
                     <Input nameField="lastName" type="text" id="last-name" />
                   </div>
                 </div>
@@ -140,11 +129,6 @@ export function SignUp({ onOpenSignUpModal, openSignUpModal }: SignUpProps) {
                   >
                     E-mail
                   </label>
-                  {/* <input
-                    className="h-8 w-full rounded-md border-[2px] border-white p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
-                    type="password"
-                    id="password"
-                  /> */}
                   <Input nameField="email" type="email" id="e-mail" />
                 </div>
 
@@ -170,11 +154,6 @@ export function SignUp({ onOpenSignUpModal, openSignUpModal }: SignUpProps) {
                   >
                     Senha
                   </label>
-                  {/* <input
-                    className="h-8 w-full rounded-md border-[2px] border-white p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
-                    type="password"
-                    id="password"
-                  /> */}
                   <Input nameField="password" type="password" id="security" />
                 </div>
 
@@ -185,11 +164,6 @@ export function SignUp({ onOpenSignUpModal, openSignUpModal }: SignUpProps) {
                   >
                     Repita a senha
                   </label>
-                  {/* <input
-                    className="h-8 w-full rounded-md border-[2px] border-white p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
-                    type="password"
-                    id="password"
-                  /> */}
                   <Input
                     nameField="confirmPassword"
                     type="password"

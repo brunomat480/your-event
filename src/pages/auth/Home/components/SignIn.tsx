@@ -77,12 +77,6 @@ export function SignIn({ onOpenSigninModal, openSignUpModal }: SignInProps) {
                 <label className="font-medium text-indigo-900" htmlFor="email">
                   E-mail ou telefone
                 </label>
-                {/* <input
-                className="h-8  w-full rounded-md border-[2px] border-white p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
-                type="email"
-                id="email"
-              /> */}
-
                 <Input nameField="email" type="email" id="email" />
               </div>
 
@@ -93,11 +87,6 @@ export function SignIn({ onOpenSigninModal, openSignUpModal }: SignInProps) {
                 >
                   Senha
                 </label>
-                {/* <input
-                  className="h-8  w-full rounded-md border-[2px] border-white p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium focus:border-indigo-900"
-                  type="password"
-                  id="password"
-                /> */}
                 <Input nameField="password" type="password" id="password" />
               </div>
               <div className="mt-2 text-end font-medium">

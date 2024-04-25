@@ -131,12 +131,12 @@ export function Navbar({ sections }: NavbarProps) {
           </button>
         </div>
 
-        <div className="flex flex-col items-center justify-center gap-12 text-black sm:gap-8 lg:flex lg:flex-row lg:items-center lg:gap-48">
-          <ul className="mt-20 flex flex-col items-center gap-7 font-semibold text-white sm:mt-0 sm:gap-3 sm:text-xl lg:mt-0 lg:flex lg:flex-row lg:items-center lg:gap-20 lg:text-base lg:text-black">
+        <div className="flex flex-col items-center justify-center gap-12 text-black sm:gap-8 lg:flex lg:flex-row lg:items-center xl:gap-48">
+          <ul className="mt-20 flex flex-col items-center gap-7 font-semibold text-white sm:mt-0 sm:gap-3 sm:text-xl lg:mr-10 lg:mt-0 lg:flex lg:flex-row lg:items-center lg:gap-14 lg:text-base lg:text-black">
             <li>
               <button type="button" onClick={handleToggleMenu}>
                 <a
-                  className="text-white after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-300 after:content-[''] hover:after:scale-100 sm:text-base lg:text-black"
+                  className="text-2xl text-white after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-300 after:content-[''] hover:after:scale-100 sm:text-base lg:text-black"
                   href="#start"
                 >
                   Início
@@ -146,7 +146,7 @@ export function Navbar({ sections }: NavbarProps) {
             <li>
               <button type="button" onClick={handleToggleMenu}>
                 <a
-                  className="text-white after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-300 after:content-[''] hover:after:scale-100 sm:text-base lg:text-black"
+                  className="text-2xl text-white after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-300 after:content-[''] hover:after:scale-100 sm:text-base lg:text-black"
                   href="#about"
                 >
                   Sobre
@@ -156,7 +156,7 @@ export function Navbar({ sections }: NavbarProps) {
             <li>
               <button type="button" onClick={handleToggleMenu}>
                 <a
-                  className="text-white after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-300 after:content-[''] hover:after:scale-100 sm:text-base lg:text-black"
+                  className="text-2xl text-white after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-300 after:content-[''] hover:after:scale-100 sm:text-base lg:text-black"
                   href="#events"
                 >
                   Eventos
@@ -167,7 +167,7 @@ export function Navbar({ sections }: NavbarProps) {
             <li>
               <button type="button" onClick={handleToggleMenu}>
                 <a
-                  className="text-white after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-300 after:content-[''] hover:after:scale-100 sm:text-base lg:text-black"
+                  className="text-2xl text-white after:block after:h-[3px] after:scale-0 after:bg-indigo-900 after:transition-transform after:duration-300 after:content-[''] hover:after:scale-100 sm:text-base lg:text-black"
                   href="#contacts"
                 >
                   Contatos
@@ -176,7 +176,7 @@ export function Navbar({ sections }: NavbarProps) {
             </li>
           </ul>
 
-          <div className="flex h-0 items-center gap-11">
+          <div className="flex h-0 items-center gap-11 lg:gap-3">
             <Button
               variant={toggle ? 'primary' : 'secondary'}
               onClick={handleOpenSignUpModal}
