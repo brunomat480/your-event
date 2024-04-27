@@ -176,7 +176,7 @@ export function Navbar({ sections }: NavbarProps) {
             </li>
           </ul>
 
-          <div className="flex h-0 items-center gap-11 lg:gap-3">
+          <div className="flex h-0 items-center gap-11 lg:gap-6">
             <Button
               variant={toggle ? 'primary' : 'secondary'}
               onClick={handleOpenSignUpModal}

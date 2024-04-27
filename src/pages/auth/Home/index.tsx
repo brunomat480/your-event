@@ -1,6 +1,9 @@
 import eventImageDesktop from '@assets/pessoa-segurando-uma-guitarra-em-cima-do-palco-desktop.png';
+import { Button } from '@components/Button';
+import { Input } from '@components/Input';
 import { Navbar } from '@components/Navbar';
 import { Pagination } from '@components/Pagination';
+import { zodResolver } from '@hookform/resolvers/zod';
 import {
   EnvelopeSimple,
   FacebookLogo,
@@ -11,13 +14,36 @@ import {
 } from '@phosphor-icons/react';
 import { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { FormProvider, useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 import { EventCard } from './components/EventCard';
 import { EventsCarousel } from './components/EventsCarousel';
 import { ScrollUpButton } from './components/ScrollUpButton';
 import { SurpportChat } from './components/SupportChat';
 
+const filterFormSchema = z.object({
+  nameEvent: z.string(),
+  dateOfEvent: z.coerce.string(),
+});
+
+type FormFilterType = z.infer<typeof filterFormSchema>;
+
 export function Home() {
+  const methods = useForm<FormFilterType>({
+    resolver: zodResolver(filterFormSchema),
+    defaultValues: {
+      nameEvent: '',
+      dateOfEvent: '',
+    },
+  });
+
+  const { handleSubmit } = methods;
+
+  function handleFilterEvents({ nameEvent, dateOfEvent }: FormFilterType) {
+    console.log({ nameEvent, dateOfEvent });
+  }
+
   const sectionRef = useRef<HTMLElement[]>([]);
 
   useEffect(() => {
@@ -91,6 +117,28 @@ export function Home() {
                 Eventos abertos
               </h2>
             </header>
+
+            <FormProvider {...methods}>
+              <form
+                onSubmit={handleSubmit(handleFilterEvents)}
+                className="mt-10 flex flex-wrap items-center gap-4"
+              >
+                <div className="w-96">
+                  <Input
+                    nameField="nameEvent"
+                    type="text"
+                    id="name-event"
+                    placeholder="Nome do evento "
+                  />
+                </div>
+                <div className="w-32">
+                  <Input nameField="dateOfEvent" type="date" />
+                </div>
+                <div className="w-24">
+                  <Button type="submit">Filtrar</Button>
+                </div>
+              </form>
+            </FormProvider>
 
             <div className="grid grid-cols-1 gap-x-24 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {Array.from({ length: 6 }).map((_, i) => (
