@@ -63,7 +63,7 @@ export function Home() {
 
       <section
         id="about"
-        className="container mx-auto px-10 pb-20 pt-28 text-center lg:px-0 lg:pb-36"
+        className="container mx-auto px-10 pb-20 pt-28 text-center lg:px-6 lg:pb-36"
       >
         <header className="lg:text-start">
           <h4 className="text-sm font-bold uppercase leading-none tracking-2 text-indigo-900 lg:text-lg">
@@ -106,7 +106,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="events" className="bg-indigo-400 px-10 lg:px-0">
+      <section id="events" className="bg-indigo-400 px-10 lg:px-6">
         <div className="container mx-auto pb-16 pt-28 text-center">
           <div className="container mx-auto">
             <header className="lg:text-start">
@@ -153,7 +153,7 @@ export function Home() {
         </div>
       </section>
 
-      <section id="contacts" className="px-10 lg:px-0">
+      <section id="contacts" className="px-10 lg:px-6 ">
         <div className="container mx-auto pb-16 pt-28">
           <div className="flex flex-col items-center gap-16 lg:flex-row lg:gap-44">
             <header className="text-center lg:text-start">
@@ -187,7 +187,7 @@ export function Home() {
         </div>
       </section>
 
-      <footer className="bg-indigo-600 px-10 py-12 lg:px-0">
+      <footer className="bg-indigo-600 px-10 py-12 lg:px-6">
         <div className="container mx-auto lg:flex lg:items-center lg:justify-between">
           <div className="flex flex-col gap-2">
             <span className="select-none text-2xl font-bold">

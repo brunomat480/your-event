@@ -17,7 +17,7 @@ export function Input({ nameField, ...rest }: InputProps) {
       <input
         data-no-valid={error?.message}
         className={twMerge(
-          'h-8 w-full rounded-md border-[2px]  p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium',
+          'h-8 w-full rounded-md border-[2px] p-2 text-sm shadow-md outline-none transition-all duration-150 ease-in placeholder:font-medium',
           error?.message
             ? 'border-rose-500 '
             : 'border-white focus:border-indigo-900',

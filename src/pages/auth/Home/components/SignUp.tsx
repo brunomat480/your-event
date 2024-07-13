@@ -20,7 +20,7 @@ const signUpFormSchema = z
     confirmPassword: z.string().min(1, 'Repita a senha'),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: 'Senha incorreta',
+    message: 'Senha não coincide',
     path: ['confirmPassword'],
   });
 
